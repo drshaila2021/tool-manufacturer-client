@@ -4,6 +4,7 @@ import About from "./Pages/Home/About";
 import Home from "./Pages/Home/Home";
 import Reviews from "./Pages/Home/Reviews";
 import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/Login/SignUp";
 import NavBar from "./Pages/Shared/NavBar";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
       </Routes>
     </div>
   );
