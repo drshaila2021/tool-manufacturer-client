@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Drill Machine",
+    "picture": "https://i.ibb.co/HBtrxzV/drill-1.jpg",
+    "minOrderQuantity": 27,
+    "availableQuantity": 29,
+    "unitPrice": 21,
+    "description": "Red color, powerful, easy to use"
+  },
+  {
+    "name": "Drill Machine",
+    "picture": "https://i.ibb.co/f9cKrrK/drill.jpg",
+    "minOrderQuantity": 34,
+    "availableQuantity": 40,
+    "unitPrice": 20,
+    "description": "Yellow color, powerful, easy to use"
+  },
+  {
+    "name": "Drill bit",
+    "picture": "https://i.ibb.co/n6k9Zxg/drillbit.jpg",
+    "minOrderQuantity": 37,
+    "availableQuantity": 39,
+    "unitPrice": 28,
+    "description": "Good quality, long lasting"
+  },
+  {
+    "name": "Hammer",
+    "picture": "https://i.ibb.co/4SnRbBX/hammer-1.jpg",
+    "minOrderQuantity": 31,
+    "availableQuantity": 25,
+    "unitPrice": 24,
+    "description": "Our unique make."
+  },
+  {
+    "name": "Range",
+    "picture": "https://i.ibb.co/m6VwLpT/range.jpg",
+    "minOrderQuantity": 26,
+    "availableQuantity": 24,
+    "unitPrice": 29,
+    "description": "Super useful, available in different size"
+  },
+  {
+    "name": "Measuring Tape",
+    "picture": "https://i.ibb.co/bPZYPkV/tape.jpg",
+    "minOrderQuantity": 37,
+    "availableQuantity": 26,
+    "unitPrice": 28,
+    "description": "Measures perfect!"
+  }
+]
