@@ -1,8 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebae.init";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   const {
@@ -11,15 +15,31 @@ const Login = () => {
     handleSubmit,
   } = useForm();
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
 
-  //   const navigate = useNavigate();
+  if (gLoading || loading) {
+    return <Loading></Loading>;
+  }
 
-  if (gUser) {
-    console.log(gUser);
+  let errorFirebase;
+
+  if (gError || error) {
+    errorFirebase = (
+      <p className="text-red-500">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+
+  if (gUser || user) {
+    navigate("/");
   }
 
   const onSubmit = (data) => {
     console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
   return (
     <div>
@@ -92,7 +112,7 @@ const Login = () => {
                   )}
                 </label>
               </div>
-
+              {errorFirebase}
               <input
                 className=" btn  btn-bordered  w-full max-w-xs text-white"
                 type="submit"
