@@ -1,9 +1,10 @@
 import React from "react";
+import banner from "../../../src/images/banner-3.jpg";
 
 const Banner = () => {
   return (
-    <div>
-      <h2>this is banner</h2>
+    <div className="flex justify-center">
+      <img src={banner} alt="toolPicture" srcset="" />
     </div>
   );
 };
