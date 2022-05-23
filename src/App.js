@@ -4,7 +4,9 @@ import About from "./Pages/Home/About";
 import Home from "./Pages/Home/Home";
 import Reviews from "./Pages/Home/Reviews";
 import Login from "./Pages/Login/Login";
+import RequireAuth from "./Pages/Login/RequireAuth";
 import SignUp from "./Pages/Login/SignUp";
+import Purchase from "./Pages/Purchase";
 import NavBar from "./Pages/Shared/NavBar";
 
 function App() {
@@ -15,6 +17,14 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route
+          path="/purchase"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
       </Routes>

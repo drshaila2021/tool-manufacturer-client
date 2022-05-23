@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Tool = ({ tool }) => {
   return (
@@ -13,7 +14,10 @@ const Tool = ({ tool }) => {
         <p>Price $ {tool.unitPrice} / qty</p>
         <p>{tool.description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+          <Link to="/purchase">
+            {" "}
+            <button className="btn btn-primary">Buy Now</button>
+          </Link>
         </div>
       </div>
     </div>
