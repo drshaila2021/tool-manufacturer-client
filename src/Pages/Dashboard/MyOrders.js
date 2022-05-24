@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
@@ -52,6 +53,7 @@ const MyOrders = () => {
             <th>Cancel Order</th>
             <th>Payment Status</th>
             <th>Payment Id</th>
+            <th>Payment Id</th>
           </tr>
         </thead>
         <tbody>
@@ -98,8 +100,23 @@ const MyOrders = () => {
                   </div>
                 </div>
               </td>
-              <td>Pay</td>
-              <td>xxxx</td>
+              <td>
+                {" "}
+                {order.totalCost && !order.paid && (
+                  <Link to={`/dashboard/payment/${order._id}`}>
+                    <button className="btn btn-xs btn-success">Pay</button>
+                  </Link>
+                )}
+                {order.totalCost && order.paid && (
+                  <span className="text-success">paid</span>
+                )}
+              </td>
+              <td>
+                {" "}
+                {order.totalCost && order.paid && (
+                  <span className="text-success">paid</span>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
