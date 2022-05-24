@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
 
@@ -18,7 +19,23 @@ const MyOrders = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  const handleCancelPurchaseOrder = () => {};
+  const handleCancelPurchaseOrder = (orderId) => {
+    if (orderId) {
+      const url = `http://localhost:5000/purchase/${orderId}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.acknowledged) {
+            toast("Order Canceled !");
+            refetch();
+          }
+          refetch();
+        });
+    }
+  };
 
   return (
     <div class="overflow-x-auto">
