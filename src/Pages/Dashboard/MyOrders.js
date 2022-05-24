@@ -18,6 +18,8 @@ const MyOrders = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  const handleCancelPurchaseOrder = () => {};
+
   return (
     <div class="overflow-x-auto">
       <table class="table table-compact w-full">
@@ -70,7 +72,7 @@ const MyOrders = () => {
                         <label
                           htmlFor="my-modal-6"
                           className="btn"
-                          //   onClick={() => handleCancelPurchaseOrder(order._id)}
+                          onClick={() => handleCancelPurchaseOrder(order._id)}
                         >
                           YES
                         </label>
