@@ -14,6 +14,7 @@ import Purchase from "./Pages/Purchase";
 import NavBar from "./Pages/Shared/NavBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "./Pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+
         <Route
           path="/purchase/:toolId"
           element={
@@ -47,6 +49,10 @@ function App() {
           <Route
             path="/dashboard/addreview"
             element={<AddReview></AddReview>}
+          ></Route>
+          <Route
+            path="/dashboard/payment/:id"
+            element={<Payment></Payment>}
           ></Route>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
