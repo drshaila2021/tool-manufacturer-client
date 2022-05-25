@@ -26,14 +26,14 @@ const User = ({ user, refetch }) => {
       <td>{email}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={handleMakeAdmin} class="btn btn-sm">
+          <button onClick={handleMakeAdmin} className="btn btn-sm">
             Make Admin
           </button>
         )}
         {role === "admin" && <span>Admin</span>}
       </td>
       <td>
-        <button class="btn btn-sm">Remove User</button>
+        <button className="btn btn-sm">Remove User</button>
       </td>
     </tr>
   );

@@ -1,55 +1,21 @@
-import { signOut } from "firebase/auth";
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import auth from "../../firebae.init";
+import { Link } from "react-router-dom";
 import Loading from "../Shared/Loading";
 
-const MyOrders = () => {
-  const [user, loading] = useAuthState(auth);
-  const navigate = useNavigate();
-  const {
-    data: orders,
-    isLoading,
-    refetch,
-  } = useQuery(["myOrders", user], () =>
-    fetch(`http://localhost:5000/purchase?user=${user.email}`, {
+const AllOrders = () => {
+  const { data: orders, isLoading } = useQuery("allOrders", () =>
+    fetch("http://localhost:5000/purchases", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    }).then((res) => {
-      if (res.status === 403 || res.status === 401) {
-        signOut(auth);
-        localStorage.removeItem("accessToken");
-        navigate("/");
-      }
-      return res.json();
-    })
+    }).then((res) => res.json())
   );
-  if (isLoading || loading) {
+  console.log(orders);
+  if (isLoading) {
     return <Loading></Loading>;
   }
-
-  const handleCancelPurchaseOrder = (orderId) => {
-    if (orderId) {
-      const url = `http://localhost:5000/purchase/${orderId}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
-            toast("Order Canceled !");
-            refetch();
-          }
-        });
-    }
-  };
-
   return (
     <div className="overflow-x-auto">
       <table className="table table-compact w-full">
@@ -106,7 +72,7 @@ const MyOrders = () => {
                         <label
                           htmlFor="my-modal-6"
                           className="btn"
-                          onClick={() => handleCancelPurchaseOrder(order._id)}
+                          //   onClick={() => handleCancelPurchaseOrder(order._id)}
                         >
                           YES
                         </label>
@@ -139,4 +105,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default AllOrders;

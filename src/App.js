@@ -18,6 +18,8 @@ import Payment from "./Pages/Dashboard/Payment";
 import NotFound from "./Pages/NotFound";
 import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
+import AllOrders from "./Pages/Dashboard/AllOrders";
+import ManageItem from "./Pages/Dashboard/ManageItem";
 
 function App() {
   return (
@@ -58,6 +60,22 @@ function App() {
             element={
               <RequireAdmin>
                 <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/orders"
+            element={
+              <RequireAdmin>
+                <AllOrders></AllOrders>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/items"
+            element={
+              <RequireAdmin>
+                <ManageItem></ManageItem>
               </RequireAdmin>
             }
           ></Route>

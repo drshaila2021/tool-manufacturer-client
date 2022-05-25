@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../firebae.init";
+import Loading from "./Shared/Loading";
 
 const Purchase = () => {
   const { toolId } = useParams();
@@ -13,18 +16,28 @@ const Purchase = () => {
   } = useForm();
   const [user, loading] = useAuthState(auth);
 
-  const [tool, setTool] = useState({});
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/tool/${toolId}`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setTool(result);
-      });
-  }, [toolId]);
+  //   const [tool, setTool] = useState({});
 
-  const onSubmit = (data) => {
+  //   useEffect(() => {
+  //     fetch(`http://localhost:5000/tool/${toolId}`)
+  //       .then((res) => res.json())
+  //       .then((result) => {
+  //         console.log(result);
+  //         setTool(result);
+  //       });
+  //   }, [toolId]);
+
+  const { data: tool, isLoading } = useQuery(["toolsQuery", toolId], () =>
+    fetch(`http://localhost:5000/tool/${toolId}`).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  const onSubmit = (data, event) => {
     console.log(data);
     console.log(data.unitPrice);
 
@@ -52,6 +65,13 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if (result.insertedId) {
+          toast("WOW ! Order has been added, Now in My Order page. Thank You!");
+          navigate("/dashboard");
+        } else {
+          toast("Sorry, having trouble to add the order!");
+        }
+        event.target.reset();
       });
   };
   return (
@@ -75,7 +95,7 @@ const Purchase = () => {
                 />
               </label>
 
-              <label className="input-group mt-1">
+              <label className="input-group mt-1 ">
                 <span>Email</span>
                 <input
                   type="email"
@@ -85,15 +105,47 @@ const Purchase = () => {
                 />
               </label>
 
-              <label className="input-group mt-1 mb-6">
-                <span>Address</span>
-                <input
-                  type="text"
-                  className="input input-bordered w-full max-w-xs"
-                  placeholder="address"
-                  {...register("address")}
-                />
-              </label>
+              <div>
+                <label className="input-group mt-1 mb-6">
+                  <span>Address</span>
+                  <input
+                    type="text"
+                    className="input input-bordered w-full max-w-xs"
+                    placeholder="address"
+                    {...register("address", {
+                      required: {
+                        value: true,
+                        message: "Address is Required",
+                      },
+                      maxLength: {
+                        value: 75,
+                        message: "Max length 75",
+                      },
+                      pattern: {
+                        value: /^\s*\S[\s\S]*$/,
+                        message: "Blank is not allowed",
+                      },
+                    })}
+                  />
+                </label>
+                <label className="label">
+                  {errors.address?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.address.message}
+                    </span>
+                  )}
+                  {errors.address?.type === "maxLength" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.address.message}
+                    </span>
+                  )}
+                  {errors.address?.type === "pattern" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.address.message}
+                    </span>
+                  )}
+                </label>
+              </div>
 
               <label className="label">
                 <span className="label-text">Item Information </span>
@@ -138,15 +190,47 @@ const Purchase = () => {
                 />
               </label>
 
-              <label className="input-group mt-1">
-                <span>Order</span>
-                <input
-                  type="number"
-                  className="input input-bordered w-full max-w-xs"
-                  placeholder={`min order quantity ${tool.minOrderQuantity}`}
-                  {...register("orderedQuantity")}
-                />
-              </label>
+              <div>
+                <label className="input-group mt-1">
+                  <span>Order</span>
+                  <input
+                    type="number"
+                    className="input input-bordered w-full max-w-xs"
+                    placeholder={`min ${tool.minOrderQuantity} to max ${tool.availableQuantity}`}
+                    {...register("orderedQuantity", {
+                      required: {
+                        value: true,
+                        message: "Order quantity is Required",
+                      },
+                      min: {
+                        value: `${tool.minOrderQuantity}`,
+                        message: `Min value is ${tool.minOrderQuantity} `,
+                      },
+                      max: {
+                        value: `${tool.availableQuantity}`,
+                        message: `Max value is ${tool.availableQuantity}`,
+                      },
+                    })}
+                  />
+                </label>
+                <label className="label">
+                  {errors.orderedQuantity?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.orderedQuantity.message}
+                    </span>
+                  )}
+                  {errors.orderedQuantity?.type === "min" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.orderedQuantity.message}
+                    </span>
+                  )}
+                  {errors.orderedQuantity?.type === "max" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.orderedQuantity.message}
+                    </span>
+                  )}
+                </label>
+              </div>
             </div>
             <input
               className="btn w-full max-w-xs text-white mt-2"
