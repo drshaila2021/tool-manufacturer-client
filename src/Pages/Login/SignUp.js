@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebae.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
@@ -22,6 +23,8 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  const [token] = useToken(user || gUser);
+
   if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
@@ -36,13 +39,13 @@ const SignUp = () => {
       </p>
     );
   }
-  if (user || gUser) {
-    console.log(user || gUser);
+  if (token) {
+    // console.log(user || gUser);
     navigate("/");
   }
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
   };

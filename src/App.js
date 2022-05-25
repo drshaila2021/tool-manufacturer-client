@@ -15,6 +15,9 @@ import NavBar from "./Pages/Shared/NavBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Payment from "./Pages/Dashboard/Payment";
+import NotFound from "./Pages/NotFound";
+import Users from "./Pages/Dashboard/Users";
+import RequireAdmin from "./Pages/Login/RequireAdmin";
 
 function App() {
   return (
@@ -51,12 +54,21 @@ function App() {
             element={<AddReview></AddReview>}
           ></Route>
           <Route
+            path="/dashboard/users"
+            element={
+              <RequireAdmin>
+                <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
             path="/dashboard/payment/:id"
             element={<Payment></Payment>}
           ></Route>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>

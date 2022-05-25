@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const {
@@ -19,6 +20,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const [token] = useToken(user || gUser);
 
   if (gLoading || loading) {
     return <Loading></Loading>;
@@ -34,7 +36,7 @@ const Login = () => {
     );
   }
   let from = location.state?.from?.pathname || "/";
-  if (gUser || user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

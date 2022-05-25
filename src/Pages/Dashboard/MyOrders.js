@@ -1,23 +1,35 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
 
 const MyOrders = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
   const {
     data: orders,
     isLoading,
     refetch,
   } = useQuery(["myOrders", user], () =>
-    fetch(`http://localhost:5000/purchase?user=${user.email}`).then((res) =>
-      res.json()
-    )
+    fetch(`http://localhost:5000/purchase?user=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (res.status === 403 || res.status === 401) {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+        navigate("/");
+      }
+      return res.json();
+    })
   );
-  if (isLoading) {
+  if (isLoading || loading) {
     return <Loading></Loading>;
   }
   const handleCancelPurchaseOrder = (orderId) => {
@@ -53,7 +65,6 @@ const MyOrders = () => {
             <th>Cancel Order</th>
             <th>Payment Status</th>
             <th>Payment Id</th>
-            <th>Payment Id</th>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +79,11 @@ const MyOrders = () => {
               <td>{order.totalCost}</td>
               <td>
                 <div>
-                  <label htmlFor="my-modal-6" className="btn modal-button">
+                  <label
+                    htmlFor="my-modal-6"
+                    className="btn modal-button"
+                    disabled={order.paid}
+                  >
                     Cancel
                   </label>
 
@@ -112,9 +127,8 @@ const MyOrders = () => {
                 )}
               </td>
               <td>
-                {" "}
-                {order.totalCost && order.paid && (
-                  <span className="text-success">paid</span>
+                {order.transactionId && (
+                  <span className="text-success">{order.transactionId}</span>
                 )}
               </td>
             </tr>

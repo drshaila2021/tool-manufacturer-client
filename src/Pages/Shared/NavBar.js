@@ -1,22 +1,25 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebae.init";
 
 const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
   const signout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
+    navigate("/");
   };
   const pages = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/reviews">Reviews</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/about">About</Link>
       </li>
