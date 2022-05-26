@@ -19,7 +19,9 @@ const Purchase = () => {
   const navigate = useNavigate();
 
   const { data: tool, isLoading } = useQuery(["toolsQuery", toolId], () =>
-    fetch(`http://localhost:5000  /tool/${toolId}`).then((res) => res.json())
+    fetch(
+      `https://mysterious-mountain-06411.herokuapp.com/tool/${toolId}`
+    ).then((res) => res.json())
   );
 
   if (isLoading) {
