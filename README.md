@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Project - Creative Tools Manufacturer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Creative Tools Manufacturer Client Site Link
 
-## Available Scripts
+[Creative Tools Manufacturer]
 
-In the project directory, you can run:
+## Creative Tools Manufacturer Server Site Link
 
-### `npm start`
+[Creative Tools Manufacturer]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Code Repo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## About the project
 
-### `npm test`
+- The project is about Tools manufacturing.
+- Home page contains the banner and some products information along with other services offered.
+- The purchase page where a user can order tools is a protected route
+- Only loged in user can go to the dashboard
+- An authorized user can see his/her my orders page,can cancle orders which is not paid yet and able to add a review
+  -An admin user can make a admin,can see all orders and able to cancle them.Also can manage all items
+- Blogs provides inform about some topics
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) htmlFor className= more information.
+## Project Technology
 
-### `npm run build`
-
-Builds the app htmlFor className= production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build htmlFor className= the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) htmlFor className= more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable htmlFor className= small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready htmlFor className= it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This is a SPA created with react.
+- create-react-app is used for initial project setup.
+- react-router is for route setup and protected route has been used.
+- Google firebase authentication platform has been for authentication. And the project provides email/password base and google provider for authentication.
+- react-firebase-hooks have been used for user creation, sign in methods.
+- Project client has been deplyed at Firebase platfrom.
+- Node express server has been used for server for CRUD opration
+- Mongobd has been used for database

@@ -23,6 +23,7 @@ import ManageItem from "./Pages/Dashboard/ManageItem";
 import ContactUs from "./Pages/Home/ContactUs";
 import Tools from "./Pages/Home/Tools";
 import MyPortfolio from "./Pages/MyPorfolio/MyPortfolio";
+import Blogs from "./Pages/Home/Blogs";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
         <Route path="/products" element={<Tools></Tools>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>

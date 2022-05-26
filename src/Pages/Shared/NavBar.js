@@ -17,21 +17,21 @@ const NavBar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      {/* <li>
-        <Link to="/reviews">Reviews</Link>
-      </li> */}
 
       <li>
         <Link to="/products">Products</Link>
       </li>
       <li>
-        <Link to="/reviews">Reviews</Link>
+        <Link to="/about">About Us</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/contact">Contact Us</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/myportfolio">My Portfolio</Link>
+      </li>
+      <li>
+        <Link to="/blogs">Blogs</Link>
       </li>
       {user && (
         <li>
