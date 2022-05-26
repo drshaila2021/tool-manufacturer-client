@@ -20,6 +20,9 @@ import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AllOrders from "./Pages/Dashboard/AllOrders";
 import ManageItem from "./Pages/Dashboard/ManageItem";
+import ContactUs from "./Pages/Home/ContactUs";
+import Tools from "./Pages/Home/Tools";
+import MyPortfolio from "./Pages/MyPorfolio/MyPortfolio";
 
 function App() {
   return (
@@ -29,6 +32,13 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
+        <Route path="/products" element={<Tools></Tools>}></Route>
+        <Route path="/reviews" element={<Reviews></Reviews>}></Route>
+        <Route
+          path="/myportfolio"
+          element={<MyPortfolio></MyPortfolio>}
+        ></Route>
 
         <Route
           path="/purchase/:toolId"

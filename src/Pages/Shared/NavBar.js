@@ -23,6 +23,18 @@ const NavBar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
+      <li>
+        <Link to="/products">Products</Link>
+      </li>
+      <li>
+        <Link to="/reviews">Reviews</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact Us</Link>
+      </li>
+      <li>
+        <Link to="/myportfolio">My Portfolio</Link>
+      </li>
       {user && (
         <li>
           <Link to="/dashboard">Dashboard</Link>

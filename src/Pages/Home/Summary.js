@@ -26,7 +26,7 @@ const Summary = () => {
         </div>
 
         <div>
-          <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card w-96 bg-purple-400 shadow-xl">
             <figure className="px-10 pt-10 text-4xl">{element2}</figure>
             <div className="card-body items-center text-center">
               <h2 className="text-4xl font-bold">33K+ </h2>
