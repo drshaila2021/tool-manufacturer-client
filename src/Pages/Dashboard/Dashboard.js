@@ -12,11 +12,14 @@ const Dashboard = () => {
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content  justify-center">
+        <h2 className="text-2xl font-bold text-center my-8">
+          Welcome to Dashboard
+        </h2>
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+        <ul className="menu p-4 overflow-y-auto w-50 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
             <Link to="/dashboard">My Order</Link>
