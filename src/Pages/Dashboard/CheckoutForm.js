@@ -13,13 +13,16 @@ const CheckoutForm = ({ purchaseItem }) => {
   const { _id, totalCost, displayName, email } = purchaseItem;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ totalCost }),
-    })
+    fetch(
+      "https://mysterious-mountain-06411.herokuapp.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ totalCost }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -79,7 +82,7 @@ const CheckoutForm = ({ purchaseItem }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5000/purchase/${_id}`, {
+      fetch(`https://mysterious-mountain-06411.herokuapp.com/purchase/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

@@ -13,7 +13,7 @@ const ContactUs = () => {
   const onSubmit = (data, event) => {
     console.log(data);
 
-    const url = `http://localhost:5000/contactus`;
+    const url = `https://mysterious-mountain-06411.herokuapp.com/contactus`;
     fetch(url, {
       method: "POST",
       headers: {

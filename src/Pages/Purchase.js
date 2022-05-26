@@ -19,7 +19,7 @@ const Purchase = () => {
   const navigate = useNavigate();
 
   const { data: tool, isLoading } = useQuery(["toolsQuery", toolId], () =>
-    fetch(`http://localhost:5000/tool/${toolId}`).then((res) => res.json())
+    fetch(`http://localhost:5000  /tool/${toolId}`).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -44,7 +44,7 @@ const Purchase = () => {
     });
     console.log(newData);
     //   posting one purchased item with user
-    fetch("http://localhost:5000/purchase", {
+    fetch("http://localhost:5000  /purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",

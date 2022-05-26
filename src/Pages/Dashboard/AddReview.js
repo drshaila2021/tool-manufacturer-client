@@ -31,7 +31,7 @@ const AddReview = () => {
       email: email,
     });
 
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://mysterious-mountain-06411.herokuapp.com/reviews`;
     fetch(url, {
       method: "POST",
       headers: {

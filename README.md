@@ -2,11 +2,11 @@
 
 ## Creative Tools Manufacturer Client Site Link
 
-[Creative Tools Manufacturer]
+[Creative Tools Manufacturer](https://tool-manufacturer-acd36.web.app/)
 
 ## Creative Tools Manufacturer Server Site Link
 
-[Creative Tools Manufacturer]
+[Creative Tools Manufacturer](https://mysterious-mountain-06411.herokuapp.com/)
 
 ## Code Repo
 

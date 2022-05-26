@@ -16,7 +16,9 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["myProfile", email], () =>
-    fetch(`http://localhost:5000/user/${email}`).then((res) => res.json())
+    fetch(`https://mysterious-mountain-06411.herokuapp.com/user/${email}`).then(
+      (res) => res.json()
+    )
   );
   console.log(profile);
   if (isLoading || loading) {
@@ -35,7 +37,7 @@ const MyProfile = () => {
       socialProfile: event.target.social.value,
     };
 
-    fetch(`http://localhost:5000/profile/${email}`, {
+    fetch(`https://mysterious-mountain-06411.herokuapp.com/profile/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

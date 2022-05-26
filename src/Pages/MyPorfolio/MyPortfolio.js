@@ -64,7 +64,7 @@ const MyPortfolio = () => {
                 <ul className="">
                   <li>
                     <a
-                      href="http://localhost:3000"
+                      href="https://tool-manufacturer-acd36.web.app/"
                       target="_blank"
                       rel="noreferrer"
                     >

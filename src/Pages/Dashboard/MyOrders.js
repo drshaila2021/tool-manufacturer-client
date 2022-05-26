@@ -16,12 +16,15 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["myOrders", user], () =>
-    fetch(`http://localhost:5000/purchase?user=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
+    fetch(
+      `https://mysterious-mountain-06411.herokuapp.com/purchase?user=${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => {
       if (res.status === 403 || res.status === 401) {
         signOut(auth);
         localStorage.removeItem("accessToken");
@@ -36,7 +39,7 @@ const MyOrders = () => {
 
   const handleCancelPurchaseOrder = (orderId) => {
     if (orderId) {
-      const url = `http://localhost:5000/purchase/${orderId}`;
+      const url = `https://mysterious-mountain-06411.herokuapp.com/purchase/${orderId}`;
       fetch(url, {
         method: "DELETE",
       })
