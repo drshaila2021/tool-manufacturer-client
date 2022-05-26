@@ -46,7 +46,7 @@ const Purchase = () => {
     });
     console.log(newData);
     //   posting one purchased item with user
-    fetch("http://localhost:5000  /purchase", {
+    fetch("https://mysterious-mountain-06411.herokuapp.com/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",
