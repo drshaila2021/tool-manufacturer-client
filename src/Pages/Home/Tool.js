@@ -23,10 +23,12 @@ const Tool = ({ tool }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p>Order Quantity {minOrderQuantity}</p>
-        <p>Order Available {availableQuantity}</p>
-        <p>Price $ {unitPrice} / qty</p>
-        <p>{description}</p>
+
+        <p className="text-left mt-2">Order Quantity {minOrderQuantity}</p>
+        <p className="text-left">Order Available {availableQuantity}</p>
+        <p className="text-left">Price $ {unitPrice} / qty</p>
+        <p className="text-left">{description}</p>
+
         <div className="card-actions justify-end">
           <button
             onClick={() => handleNavigatePurchase(_id)}

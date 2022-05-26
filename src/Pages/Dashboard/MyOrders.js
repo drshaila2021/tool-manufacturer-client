@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
-import CancelOrder from "./CancelOrder";
 
 const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
@@ -82,15 +81,6 @@ const MyOrders = () => {
               <td>{order?.totalCost}</td>
               <td>
                 <div>
-                  <CancelOrder
-                    order={order}
-                    handleCancelPurchaseOrder={handleCancelPurchaseOrder}
-                  ></CancelOrder>{" "}
-                  {order?._id}
-                </div>
-              </td>
-
-              {/* <div>
                   <label
                     htmlFor="my-modal-6"
                     className="btn modal-button"
@@ -115,12 +105,8 @@ const MyOrders = () => {
                         </label>
                       </div>
                       <h3 className="font-bold text-lg">
-                        {order?.displayName} , <br /> Are you sure to cancle the
-                        order?
+                        <br /> Are you sure to cancle the order?
                       </h3>
-                      <p className="py-4">
-                        {order?._id} : {order?.name}
-                      </p>
 
                       <div className="modal-action">
                         <label
@@ -133,8 +119,8 @@ const MyOrders = () => {
                       </div>
                     </div>
                   </div>
-                </div> */}
-
+                </div>
+              </td>
               <td>
                 {" "}
                 {order.totalCost && !order.paid && (

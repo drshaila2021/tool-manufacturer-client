@@ -13,7 +13,7 @@ const Tools = () => {
     <div className="my-16">
       <h3 className="text-center font-bold my-16 text-3xl">Tools We Make</h3>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  justify-items-center">
-        {tools.slice(0, 3).map((tool) => (
+        {tools.map((tool) => (
           <Tool key={tool._id} tool={tool}></Tool>
         ))}
       </div>
