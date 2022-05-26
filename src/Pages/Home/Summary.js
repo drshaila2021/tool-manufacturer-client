@@ -12,8 +12,8 @@ const Summary = () => {
   const element2 = <FontAwesomeIcon icon={faStarOfDavid} />;
   const element3 = <FontAwesomeIcon icon={faBuildingColumns} />;
   return (
-    <div className="my-24 ">
-      <h1 className="text-3xl font-bold my-24"> WE MAKE DEFERANCES</h1>
+    <div className="mt-20 ">
+      <h1 className="text-3xl font-bold my-12"> Business Summary</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-items-center my-24">
         <div>
           <div className="card w-96 bg-base-100 shadow-xl">

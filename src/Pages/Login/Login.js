@@ -117,7 +117,7 @@ const Login = () => {
               </div>
               {errorFirebase}
               <input
-                className=" btn  btn-bordered  w-full max-w-xs text-white"
+                className=" btn btn-bordered btn-primary w-full max-w-xs"
                 type="submit"
                 value="Login"
               />

@@ -21,7 +21,7 @@ const Users = () => {
   }
   return (
     <div>
-      <h2 className="text-2xl my-8 font-bold">All Users: {users.length}</h2>
+      <h2 className="text-2xl font-bold text-center mt-4 mb-8">All Users</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -33,8 +33,13 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <User key={user._id} user={user} refetch={refetch}></User>
+            {users.map((user, index) => (
+              <User
+                key={user._id}
+                index={index}
+                user={user}
+                refetch={refetch}
+              ></User>
             ))}
           </tbody>
         </table>

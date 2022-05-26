@@ -37,7 +37,7 @@ const AllOrders = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <tr>
+              <tr key={order._id}>
                 <th>{index + 1}</th>
                 <td>{order.displayName}</td>
                 <td>{order.email}</td>
@@ -62,6 +62,15 @@ const AllOrders = () => {
                     />
                     <div className="modal modal-bottom sm:modal-middle">
                       <div className="modal-box">
+                        <div className="modal-action">
+                          <label
+                            htmlFor="my-modal-6"
+                            className="btn btn-sm btn-circle absolute right-6 top-2"
+                          >
+                            ✕
+                          </label>
+                        </div>
+
                         <h3 className="font-bold text-lg">
                           {order?.displayName} , <br /> Are you sure to cancle
                           the order?

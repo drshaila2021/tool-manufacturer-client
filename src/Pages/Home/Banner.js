@@ -4,12 +4,7 @@ import banner from "../../../src/images/banner-3.jpg";
 const Banner = () => {
   return (
     <div className="flex justify-center">
-      <img
-        className="shadow-lg w-full"
-        src={banner}
-        alt="toolPicture"
-        srcSet=""
-      />
+      <img className="shadow-xl w-full" src={banner} alt="toolPicture" />
     </div>
   );
 };

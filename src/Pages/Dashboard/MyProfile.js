@@ -65,7 +65,7 @@ const MyProfile = () => {
   );
   return (
     <div>
-      <h1 className="text-3xl justify-center">My Profile</h1>
+      <h2 className="text-2xl font-bold text-center mt-4 mb-8">My Profile</h2>
       <div className="overflow-x-auto mx-2">
         <table className="table w-full">
           <thead>

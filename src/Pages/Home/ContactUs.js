@@ -33,10 +33,10 @@ const ContactUs = () => {
       });
   };
   return (
-    <div className="lg:mx-24">
-      <h3 className="text-center font-bold my-24 text-3xl">Contact Us</h3>
+    <div className="lg:mx-14">
+      <h3 className="text-center font-bold my-16 text-3xl">Contact Us</h3>
 
-      <div className="hero rounded-lg shadow-lg justify-center">
+      <div className="hero rounded-xl shadow-lg justify-center">
         <div className="hero-content flex-col lg:flex-row gap-24">
           <img src={contactus} className=" rounded-lg shadow-2xl" alt="" />
 

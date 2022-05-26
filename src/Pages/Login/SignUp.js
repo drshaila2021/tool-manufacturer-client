@@ -146,7 +146,7 @@ const SignUp = () => {
               </div>
               {signUpError}
               <input
-                className=" btn  btn-bordered  w-full max-w-xs text-white"
+                className=" btn  btn-bordered  w-full max-w-xs btn-primary"
                 type="submit"
                 value="Sign Up"
               />

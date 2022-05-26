@@ -6,10 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebae.init";
 import Loading from "../Shared/Loading";
+import CancelOrder from "./CancelOrder";
 
 const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+
   const {
     data: orders,
     isLoading,
@@ -52,6 +54,7 @@ const MyOrders = () => {
 
   return (
     <div className="overflow-x-auto">
+      <h2 className="text-2xl font-bold text-center mb-8">My Orders</h2>
       <table className="table table-compact w-full">
         <thead>
           <tr>
@@ -71,14 +74,23 @@ const MyOrders = () => {
           {orders.map((order, index) => (
             <tr>
               <th>{index + 1}</th>
-              <td>{order.displayName}</td>
-              <td>{order.email}</td>
+              <td>{order?.displayName}</td>
+              <td>{order?.email}</td>
               <td>{order?.name}</td>
-              <td>{order.orderedQuantity}</td>
-              <td>{order.unitPrice}</td>
-              <td>{order.totalCost}</td>
+              <td>{order?.orderedQuantity}</td>
+              <td>{order?.unitPrice}</td>
+              <td>{order?.totalCost}</td>
               <td>
                 <div>
+                  <CancelOrder
+                    order={order}
+                    handleCancelPurchaseOrder={handleCancelPurchaseOrder}
+                  ></CancelOrder>{" "}
+                  {order?._id}
+                </div>
+              </td>
+
+              {/* <div>
                   <label
                     htmlFor="my-modal-6"
                     className="btn modal-button"
@@ -94,6 +106,14 @@ const MyOrders = () => {
                   />
                   <div className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
+                      <div className="modal-action">
+                        <label
+                          htmlFor="my-modal-6"
+                          className="btn btn-sm btn-circle absolute right-6 top-2"
+                        >
+                          ✕
+                        </label>
+                      </div>
                       <h3 className="font-bold text-lg">
                         {order?.displayName} , <br /> Are you sure to cancle the
                         order?
@@ -113,8 +133,8 @@ const MyOrders = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </td>
+                </div> */}
+
               <td>
                 {" "}
                 {order.totalCost && !order.paid && (

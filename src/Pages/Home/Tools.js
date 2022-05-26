@@ -10,8 +10,8 @@ const Tools = () => {
       .then((data) => setTools(data));
   }, []);
   return (
-    <div className="my-24">
-      <h2 className="text-3xl my-20">Tools We Provides</h2>
+    <div className="my-16">
+      <h3 className="text-center font-bold my-16 text-3xl">Tools We Make</h3>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  justify-items-center">
         {tools.slice(0, 3).map((tool) => (
           <Tool key={tool._id} tool={tool}></Tool>

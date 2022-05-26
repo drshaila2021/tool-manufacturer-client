@@ -18,17 +18,6 @@ const Purchase = () => {
 
   const navigate = useNavigate();
 
-  //   const [tool, setTool] = useState({});
-
-  //   useEffect(() => {
-  //     fetch(`http://localhost:5000/tool/${toolId}`)
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         console.log(result);
-  //         setTool(result);
-  //       });
-  //   }, [toolId]);
-
   const { data: tool, isLoading } = useQuery(["toolsQuery", toolId], () =>
     fetch(`http://localhost:5000/tool/${toolId}`).then((res) => res.json())
   );
