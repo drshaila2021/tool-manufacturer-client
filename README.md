@@ -10,6 +10,10 @@
 
 ## Code Repo
 
+[https://github.com/programming-hero-web-course1/manufacturer-website-client-side-drshaila2021.git](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-drshaila2021.git)
+
+[https://github.com/programming-hero-web-course1/manufacturer-website-server-side-drshaila2021.git](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-drshaila2021.git)
+
 ## About the project
 
 - The project is about Tools manufacturing.
